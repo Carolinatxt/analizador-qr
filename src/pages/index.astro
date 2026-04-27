@@ -30,6 +30,8 @@
       content="Analiza el enlace de un QR con fuentes externas de reputación antes de decidir si abrirlo."
     />
     <meta property="og:type" content="website" />
+    <!-- og:image: sustituir por una captura real de la landing cuando esté publicada -->
+    <meta property="og:image" content="/favicon.svg" />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,6 +43,9 @@
   </head>
 
   <body>
+
+    <!-- Skip-to-content: accesibilidad para usuarios de teclado/lector de pantalla -->
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
 
     <!-- ============================================================
          HEADER — Navegación principal sticky
@@ -130,8 +135,8 @@
           <!-- Columna izquierda: texto -->
           <div class="hero-text hero-animate">
             <!-- Badge / eyebrow -->
-            <span class="badge badge-brand" aria-label="Estado del proyecto">
-              🔍 Prototipo de validación técnica · TFG
+            <span class="badge badge-brand" aria-label="Estado del proyecto: versión 0, prototipo académico">
+              🔍 V0 · Prototipo de validación técnica · TFG
             </span>
 
             <h1 id="hero-title" class="hero-title">
@@ -1246,6 +1251,29 @@
   /* Quitar outline en mouse, mantener en teclado */
   :focus:not(:focus-visible) {
     outline: none;
+  }
+
+  /* Skip-to-content: solo visible al recibir foco con teclado */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-sm);
+    padding: 8px 18px;
+    background: var(--color-brand);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    z-index: 9999;
+    text-decoration: none;
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus {
+    top: var(--space-sm);
+    outline: 3px solid #fff;
+    outline-offset: 2px;
   }
 
   /* ---------------------------------------------------------------
