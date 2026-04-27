@@ -54,33 +54,14 @@
       <div class="container header-inner">
 
         <!-- Logo -->
-        <a href="#inicio" class="logo" aria-label="AnalizadorQR — Ir al inicio">
-          <!-- Icono escudo SVG inline -->
-          <svg
+        <a href="#inicio" class="logo" aria-label="AnalizadorQR - Ir al inicio">
+          <img
             class="logo-icon"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M16 3L5 7.5V15c0 6.075 4.667 11.742 11 13.338C22.333 26.742 27 21.075 27 15V7.5L16 3Z"
-              fill="#2E7D32"
-            />
-            <path
-              d="M16 3L5 7.5V15c0 6.075 4.667 11.742 11 13.338V3Z"
-              fill="#4CAF50"
-              opacity="0.5"
-            />
-            <!-- Check mark -->
-            <path
-              d="M11 16l3.5 3.5L21 12"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+            src="/images/logo-analizador-qr.png"
+            alt="Logo de AnalizadorQR"
+            loading="eager"
+            decoding="async"
+          />
           <span class="logo-text">AnalizadorQR</span>
         </a>
 
@@ -148,9 +129,9 @@
 
             <!-- Chips de características rápidas -->
             <div class="hero-chips" aria-label="Características clave">
-              <span class="hero-chip">🚦 Semáforo de riesgo</span>
-              <span class="hero-chip">🔒 Sin abrir el enlace</span>
-              <span class="hero-chip">☁️ Análisis externo</span>
+              <span class="hero-chip">Semáforo de riesgo</span>
+              <span class="hero-chip">Sin abrir el enlace</span>
+              <span class="hero-chip">Análisis externo</span>
             </div>
 
             <div class="hero-actions">
@@ -548,7 +529,7 @@
 
           <!-- Nota de transparencia -->
           <p class="note-text">
-            ℹ️ El análisis puede ser <strong>completo</strong>, <strong>parcial</strong>
+            <span class="note-info-icon" aria-hidden="true">i</span> El análisis puede ser <strong>completo</strong>, <strong>parcial</strong>
             o <strong>no disponible</strong>, dependiendo de la respuesta de los
             proveedores externos. El resultado siempre indica el estado de la consulta.
           </p>
@@ -692,7 +673,12 @@
             <!-- SEGURO -->
             <article class="risk-card risk-safe" aria-label="Nivel de riesgo: Seguro">
               <div class="risk-card-header">
-                <span class="risk-icon" aria-hidden="true">✅</span>
+                <span class="risk-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M8 12.5L11 15.5L16 9.5"></path>
+                  </svg>
+                </span>
                 <span class="risk-badge badge-safe">SEGURO</span>
               </div>
               <h3 class="risk-title">Sin señales de riesgo detectadas</h3>
@@ -705,7 +691,13 @@
             <!-- SOSPECHOSO -->
             <article class="risk-card risk-suspicious" aria-label="Nivel de riesgo: Sospechoso">
               <div class="risk-card-header">
-                <span class="risk-icon" aria-hidden="true">⚠️</span>
+                <span class="risk-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <path d="M12 4L20 19H4L12 4Z"></path>
+                    <path d="M12 9.2V13"></path>
+                    <circle cx="12" cy="16.2" r="0.9" fill="currentColor" stroke="none"></circle>
+                  </svg>
+                </span>
                 <span class="risk-badge badge-suspicious">SOSPECHOSO</span>
               </div>
               <h3 class="risk-title">Hay señales de alerta o análisis incompleto</h3>
@@ -718,7 +710,12 @@
             <!-- PELIGROSO -->
             <article class="risk-card risk-dangerous" aria-label="Nivel de riesgo: Peligroso">
               <div class="risk-card-header">
-                <span class="risk-icon" aria-hidden="true">🚫</span>
+                <span class="risk-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M8 8L16 16"></path>
+                  </svg>
+                </span>
                 <span class="risk-badge badge-dangerous">PELIGROSO</span>
               </div>
               <h3 class="risk-title">Amenaza grave detectada</h3>
@@ -732,7 +729,7 @@
 
           <!-- Nota bajo tarjetas -->
           <p class="note-text note-centered">
-            ℹ️ Estos niveles son orientativos. El resultado refleja la información disponible
+            <span class="note-info-icon" aria-hidden="true">i</span> Estos niveles son orientativos. El resultado refleja la información disponible
             en el momento del análisis y puede no estar actualizado en tiempo real.
           </p>
 
@@ -761,25 +758,13 @@
             <figure class="screenshot-item">
               <div class="phone-frame">
                 <div class="phone-frame-inner">
-                  <!-- Placeholder hasta tener imágenes reales -->
-                  <!-- Cuando tengas la imagen: <img src="/images/screen-scan.webp" alt="..." /> -->
-                  <div class="screenshot-placeholder screenshot-ph-scan">
-                    <div class="ph-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="3" width="7" height="7"/>
-                        <rect x="14" y="3" width="7" height="7"/>
-                        <rect x="3" y="14" width="7" height="7"/>
-                        <rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
-                        <rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
-                        <rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none"/>
-                        <line x1="14" y1="14" x2="17" y2="14"/>
-                        <line x1="14" y1="17" x2="17" y2="17"/>
-                        <line x1="17" y1="14" x2="17" y2="17"/>
-                      </svg>
-                    </div>
-                    <span class="ph-label">Escaneo de QR</span>
-                    <span class="ph-sublabel">Captura próximamente</span>
-                  </div>
+                  <img
+                    class="screenshot-image"
+                    src="/images/screens/screen-scan.jpg"
+                    alt="Pantalla principal de escaneo de QR en la app AnalizadorQR"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <figcaption class="screenshot-caption">Escaneo de QR</figcaption>
@@ -789,11 +774,13 @@
             <figure class="screenshot-item">
               <div class="phone-frame phone-frame-safe">
                 <div class="phone-frame-inner">
-                  <div class="screenshot-placeholder screenshot-ph-safe">
-                    <div class="ph-icon ph-icon-safe" aria-hidden="true">✅</div>
-                    <span class="ph-label">Resultado: Seguro</span>
-                    <span class="ph-sublabel">Captura próximamente</span>
-                  </div>
+                  <img
+                    class="screenshot-image"
+                    src="/images/screens/screen-result-safe.jpg"
+                    alt="Pantalla de resultado seguro en AnalizadorQR"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <figcaption class="screenshot-caption">Resultado: Seguro</figcaption>
@@ -803,11 +790,13 @@
             <figure class="screenshot-item">
               <div class="phone-frame phone-frame-suspicious">
                 <div class="phone-frame-inner">
-                  <div class="screenshot-placeholder screenshot-ph-suspicious">
-                    <div class="ph-icon ph-icon-suspicious" aria-hidden="true">⚠️</div>
-                    <span class="ph-label">Resultado: Sospechoso</span>
-                    <span class="ph-sublabel">Captura próximamente</span>
-                  </div>
+                  <img
+                    class="screenshot-image"
+                    src="/images/screens/screen-result-suspicious.jpg"
+                    alt="Pantalla de resultado sospechoso en AnalizadorQR"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <figcaption class="screenshot-caption">Resultado: Sospechoso</figcaption>
@@ -817,11 +806,13 @@
             <figure class="screenshot-item">
               <div class="phone-frame phone-frame-dangerous">
                 <div class="phone-frame-inner">
-                  <div class="screenshot-placeholder screenshot-ph-dangerous">
-                    <div class="ph-icon ph-icon-dangerous" aria-hidden="true">🚫</div>
-                    <span class="ph-label">Resultado: Peligroso</span>
-                    <span class="ph-sublabel">Captura próximamente</span>
-                  </div>
+                  <img
+                    class="screenshot-image"
+                    src="/images/screens/screen-result-dangerous.jpg"
+                    alt="Pantalla de resultado peligroso en AnalizadorQR"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <figcaption class="screenshot-caption">Resultado: Peligroso</figcaption>
@@ -1016,7 +1007,7 @@
       <div class="container footer-inner">
 
         <div class="footer-brand">
-          <span class="footer-logo">🛡️ AnalizadorQR</span>
+          <span class="footer-logo">AnalizadorQR</span>
           <p class="footer-tagline">Analiza antes de abrir.</p>
         </div>
 
@@ -1212,6 +1203,10 @@
   html {
     scroll-behavior: smooth;
     font-size: 16px;
+  }
+
+  main section[id]:not(#inicio) {
+    scroll-margin-top: 110px;
   }
 
   body {
@@ -2120,6 +2115,22 @@
     line-height: 1.6;
   }
 
+  .note-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #5fa0d8;
+    color: #3f8bcf;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 0.375rem;
+    transform: translateY(-1px);
+  }
+
   .note-centered {
     text-align: center;
     max-width: 60ch;
@@ -2286,7 +2297,33 @@
   }
 
   .risk-icon {
-    font-size: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .risk-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .risk-safe .risk-icon {
+    color: #2e7d32;
+  }
+
+  .risk-suspicious .risk-icon {
+    color: #e65100;
+  }
+
+  .risk-dangerous .risk-icon {
+    color: #d32f2f;
   }
 
   .risk-badge {
@@ -2379,6 +2416,14 @@
     border-radius: 22px;
     overflow: hidden;
     background: var(--color-light);
+  }
+
+  .screenshot-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
   }
 
   /* Placeholder para cuando no hay imagen */
