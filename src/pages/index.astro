@@ -1,17 +1,2470 @@
 ---
-
+// AnalizadorQR — Landing Page
+// Proyecto de Trabajo de Fin de Grado
+// Fase 3: Primera versión completa
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>AnalizadorQR — Comprueba un código QR antes de abrirlo</title>
+    <meta
+      name="description"
+      content="AnalizadorQR analiza el enlace de un código QR con fuentes externas de reputación y te muestra si parece seguro, sospechoso o peligroso, para que puedas decidir con más información."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Open Graph básico -->
+    <meta property="og:title" content="AnalizadorQR — Comprueba un código QR antes de abrirlo" />
+    <meta
+      property="og:description"
+      content="Analiza el enlace de un QR con fuentes externas de reputación antes de decidir si abrirlo."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+
+    <!-- ============================================================
+         HEADER — Navegación principal sticky
+    ============================================================ -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+
+        <!-- Logo -->
+        <a href="#inicio" class="logo" aria-label="AnalizadorQR — Ir al inicio">
+          <!-- Icono escudo SVG inline -->
+          <svg
+            class="logo-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M16 3L5 7.5V15c0 6.075 4.667 11.742 11 13.338C22.333 26.742 27 21.075 27 15V7.5L16 3Z"
+              fill="#2E7D32"
+            />
+            <path
+              d="M16 3L5 7.5V15c0 6.075 4.667 11.742 11 13.338V3Z"
+              fill="#4CAF50"
+              opacity="0.5"
+            />
+            <!-- Check mark -->
+            <path
+              d="M11 16l3.5 3.5L21 12"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="logo-text">AnalizadorQR</span>
+        </a>
+
+        <!-- Navegación desktop -->
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#problema" class="nav-link">El problema</a>
+          <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+          <a href="#funcionalidades" class="nav-link">Funcionalidades</a>
+          <a href="#capturas" class="nav-link">Capturas</a>
+          <a href="#seguridad" class="nav-link">Seguridad</a>
+        </nav>
+
+        <!-- CTA header -->
+        <a href="#como-funciona" class="btn btn-primary btn-sm" id="header-cta">
+          Conocer el proyecto
+        </a>
+
+        <!-- Hamburger móvil -->
+        <button
+          class="hamburger"
+          id="hamburger-btn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Menú móvil -->
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil" hidden>
+        <a href="#problema" class="mobile-link">El problema</a>
+        <a href="#como-funciona" class="mobile-link">Cómo funciona</a>
+        <a href="#funcionalidades" class="mobile-link">Funcionalidades</a>
+        <a href="#capturas" class="mobile-link">Capturas</a>
+        <a href="#seguridad" class="mobile-link">Seguridad</a>
+        <a href="#como-funciona" class="btn btn-primary mobile-cta">Conocer el proyecto</a>
+      </nav>
+    </header>
+
+
+    <main>
+
+      <!-- ============================================================
+           SECCIÓN: HERO — #inicio
+      ============================================================ -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+
+          <!-- Columna izquierda: texto -->
+          <div class="hero-text">
+            <!-- Badge / eyebrow -->
+            <span class="badge badge-brand" aria-label="Estado del proyecto">
+              🔍 Prototipo de validación técnica · TFG
+            </span>
+
+            <h1 id="hero-title" class="hero-title">
+              ¿Es seguro este QR?<br />
+              <span class="text-brand">Compruébalo antes de abrirlo.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              AnalizadorQR analiza el enlace que contiene un código QR y te muestra
+              si parece seguro, sospechoso o peligroso, para que puedas decidir
+              con más información.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#como-funciona" class="btn btn-primary btn-lg" id="hero-cta-primary">
+                Ver cómo funciona
+              </a>
+              <a href="#capturas" class="btn-link" id="hero-cta-secondary">
+                Ver capturas de la app →
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna derecha: mockup tarjeta resultado (CSS puro) -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="phone-mockup">
+              <div class="phone-screen">
+
+                <!-- Barra de estado simulada -->
+                <div class="phone-statusbar">
+                  <span>19:33</span>
+                  <span>100%</span>
+                </div>
+
+                <!-- App bar -->
+                <div class="phone-appbar">
+                  <span class="phone-appbar-icon">🛡️</span>
+                  <span class="phone-appbar-title">QR Scanner</span>
+                </div>
+
+                <!-- Contenido: resultado análisis -->
+                <div class="result-card">
+                  <div class="result-header">
+                    <span class="result-label">Resultado del análisis</span>
+                  </div>
+
+                  <div class="result-status safe">
+                    <span class="result-icon">✅</span>
+                    <span class="result-level">SEGURO</span>
+                  </div>
+
+                  <p class="result-summary">
+                    No se detectaron señales de riesgo conocidas en este enlace.
+                  </p>
+
+                  <div class="result-url">
+                    <span class="result-url-icon">🔗</span>
+                    <span class="result-url-text">ejemplo.com/pagina</span>
+                  </div>
+
+                  <div class="result-meta">
+                    <span class="result-analysis-status">Análisis completo</span>
+                    <span class="result-time">Hace un momento</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Decoración: círculo gradiente de fondo -->
+            <div class="hero-glow" aria-hidden="true"></div>
+          </div>
+
+        </div>
+
+        <!-- Decoración: patrón QR de fondo -->
+        <div class="hero-bg-pattern" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" opacity="0.04">
+            <rect x="10" y="10" width="60" height="60" fill="none" stroke="#2E7D32" stroke-width="8"/>
+            <rect x="20" y="20" width="40" height="40" fill="#2E7D32"/>
+            <rect x="130" y="10" width="60" height="60" fill="none" stroke="#2E7D32" stroke-width="8"/>
+            <rect x="140" y="20" width="40" height="40" fill="#2E7D32"/>
+            <rect x="10" y="130" width="60" height="60" fill="none" stroke="#2E7D32" stroke-width="8"/>
+            <rect x="20" y="140" width="40" height="40" fill="#2E7D32"/>
+            <rect x="80" y="10" width="12" height="12" fill="#2E7D32"/>
+            <rect x="96" y="10" width="12" height="12" fill="#2E7D32"/>
+            <rect x="80" y="26" width="12" height="12" fill="#2E7D32"/>
+            <rect x="96" y="26" width="12" height="12" fill="#2E7D32"/>
+            <rect x="130" y="130" width="20" height="20" fill="#2E7D32"/>
+            <rect x="155" y="155" width="20" height="20" fill="#2E7D32"/>
+            <rect x="130" y="155" width="20" height="20" fill="#2E7D32"/>
+            <rect x="155" y="130" width="20" height="20" fill="#2E7D32"/>
+          </svg>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: EL PROBLEMA — #problema
+      ============================================================ -->
+      <section class="section section-light" id="problema" aria-labelledby="problema-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="problema-title" class="section-title">
+              Los códigos QR pueden ocultar sorpresas
+            </h2>
+            <p class="section-subtitle">
+              Los QR son prácticos y están en todas partes: restaurantes, carteles,
+              correos, paquetes. Pero a diferencia de un enlace visible, no puedes
+              saber a dónde te llevan antes de escanearlos.
+            </p>
+          </div>
+
+          <!-- Subtítulo quishing -->
+          <div class="quishing-block">
+            <h3 class="quishing-title">¿Qué es el quishing?</h3>
+            <p class="quishing-text">
+              El quishing es una técnica de engaño que usa códigos QR para dirigir
+              a páginas falsas que imitan servicios legítimos, intentando robar datos
+              o instalar software malicioso. Estos ataques aprovechan la confianza
+              habitual en los códigos QR y pueden pasar desapercibidos para usuarios
+              no técnicos.
+            </p>
+          </div>
+
+          <!-- 3 cards de contexto -->
+          <div class="cards-grid cards-grid-3">
+
+            <article class="card card-problem" aria-label="Sin visibilidad previa">
+              <div class="card-icon-wrap">
+                <!-- Icono: ojo -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                  <line x1="4" y1="4" x2="20" y2="20" stroke-width="2.5"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Sin visibilidad previa</h3>
+              <p class="card-text">
+                Un QR es opaco por diseño. No puedes leer la URL antes de escanearlo.
+              </p>
+            </article>
+
+            <article class="card card-problem" aria-label="Destino poco evidente">
+              <div class="card-icon-wrap">
+                <!-- Icono: enlace con interrogación -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  <line x1="12" y1="16" x2="12" y2="18"/>
+                  <circle cx="12" cy="21" r="0.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Destino poco evidente</h3>
+              <p class="card-text">
+                Un enlace dentro de un QR puede dirigir a una página que el usuario
+                no esperaba visitar.
+              </p>
+            </article>
+
+            <article class="card card-problem" aria-label="Cualquiera puede ser objetivo">
+              <div class="card-icon-wrap">
+                <!-- Icono: persona -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Cualquiera puede ser objetivo</h3>
+              <p class="card-text">
+                Los ataques basados en QR no discriminan: usuarios cotidianos son
+                el blanco más frecuente.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: PROPUESTA DE VALOR Y BENEFICIOS — #propuesta
+      ============================================================ -->
+      <section class="section section-brand-surface" id="propuesta" aria-labelledby="propuesta-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="propuesta-title" class="section-title">
+              Una capa de análisis antes de decidir
+            </h2>
+            <p class="section-subtitle">
+              AnalizadorQR no sustituye tu criterio ni garantiza seguridad absoluta.
+              Pero te da información antes de abrir un enlace desconocido: señales de
+              riesgo detectadas por fuentes externas especializadas, presentadas de
+              forma clara y comprensible.
+            </p>
+          </div>
+
+          <!-- 3 beneficios -->
+          <div class="cards-grid cards-grid-3">
+
+            <article class="card card-benefit" aria-label="Más información, mejor decisión">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono: cerebro/mente -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
+                  <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Más información, mejor decisión</h3>
+              <p class="card-text">
+                Conoces el nivel de riesgo antes de visitar el enlace. Tú decides
+                si continuar.
+              </p>
+            </article>
+
+            <article class="card card-benefit" aria-label="Resultado claro y directo">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono: semáforo -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="6" y="2" width="12" height="20" rx="5"/>
+                  <circle cx="12" cy="7" r="2" fill="#4CAF50" stroke="none"/>
+                  <circle cx="12" cy="13" r="2" fill="#FF8F00" stroke="none"/>
+                  <circle cx="12" cy="19" r="2" fill="#D32F2F" stroke="none"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Resultado claro y directo</h3>
+              <p class="card-text">
+                Sin tecnicismos. Un semáforo visual te indica si el enlace parece
+                seguro, sospechoso o peligroso.
+              </p>
+            </article>
+
+            <article class="card card-benefit" aria-label="Enfoque preventivo por defecto">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono: escudo check -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Enfoque preventivo por defecto</h3>
+              <p class="card-text">
+                Si el análisis no puede ser completo, el sistema adopta una postura
+                conservadora. Ante la duda, alerta.
+              </p>
+            </article>
+
+          </div>
+
+          <!-- Nota disclaimer -->
+          <p class="disclaimer-text">
+            AnalizadorQR es un prototipo de validación técnica desarrollado como
+            Trabajo de Fin de Grado. Su objetivo es demostrar la viabilidad del
+            concepto, no ofrecer una solución de seguridad definitiva.
+          </p>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: CÓMO FUNCIONA — #como-funciona
+      ============================================================ -->
+      <section class="section section-white" id="como-funciona" aria-labelledby="como-funciona-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="como-funciona-title" class="section-title">
+              Cómo funciona AnalizadorQR
+            </h2>
+            <p class="section-subtitle">Un proceso simple en cuatro pasos</p>
+          </div>
+
+          <!-- Flujo de 4 pasos -->
+          <div class="steps-flow" role="list">
+
+            <div class="step" role="listitem" aria-label="Paso 1: Escanea el QR">
+              <div class="step-number" aria-hidden="true">01</div>
+              <div class="step-icon-wrap" aria-hidden="true">
+                <!-- Icono QR -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"/>
+                  <rect x="14" y="3" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/>
+                  <rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
+                  <rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
+                  <rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none"/>
+                  <line x1="14" y1="14" x2="14" y2="14" stroke-width="3"/>
+                  <line x1="19" y1="14" x2="19" y2="14" stroke-width="3"/>
+                  <line x1="14" y1="19" x2="14" y2="19" stroke-width="3"/>
+                  <line x1="19" y1="19" x2="19" y2="19" stroke-width="3"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Escanea el QR</h3>
+              <p class="step-text">
+                Apunta con la cámara al código QR. La app lo detecta automáticamente
+                usando el lector integrado.
+              </p>
+            </div>
+
+            <div class="step-connector" aria-hidden="true"></div>
+
+            <div class="step" role="listitem" aria-label="Paso 2: Se detecta la URL">
+              <div class="step-number" aria-hidden="true">02</div>
+              <div class="step-icon-wrap" aria-hidden="true">
+                <!-- Icono enlace -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Se detecta la URL</h3>
+              <p class="step-text">
+                La app comprueba si el QR contiene una URL web válida. Si no la hay,
+                te lo indica sin continuar.
+              </p>
+            </div>
+
+            <div class="step-connector" aria-hidden="true"></div>
+
+            <div class="step" role="listitem" aria-label="Paso 3: Se analiza el enlace">
+              <div class="step-number" aria-hidden="true">03</div>
+              <div class="step-icon-wrap" aria-hidden="true">
+                <!-- Icono análisis/nube -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Se analiza el enlace</h3>
+              <p class="step-text">
+                La URL se envía al servidor, que la consulta en paralelo con proveedores
+                externos de reputación: Google Web Risk e IPQualityScore.
+              </p>
+            </div>
+
+            <div class="step-connector" aria-hidden="true"></div>
+
+            <div class="step" role="listitem" aria-label="Paso 4: Ves el resultado">
+              <div class="step-number" aria-hidden="true">04</div>
+              <div class="step-icon-wrap" aria-hidden="true">
+                <!-- Icono check / resultado -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Ves el resultado</h3>
+              <p class="step-text">
+                En segundos recibes el nivel de riesgo detectado, junto con una breve
+                explicación en lenguaje claro.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Nota de transparencia -->
+          <p class="note-text">
+            ℹ️ El análisis puede ser <strong>completo</strong>, <strong>parcial</strong>
+            o <strong>no disponible</strong>, dependiendo de la respuesta de los
+            proveedores externos. El resultado siempre indica el estado de la consulta.
+          </p>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: FUNCIONALIDADES — #funcionalidades
+      ============================================================ -->
+      <section class="section section-light" id="funcionalidades" aria-labelledby="funcionalidades-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="funcionalidades-title" class="section-title">
+              Qué incluye la versión actual
+            </h2>
+            <p class="section-subtitle">
+              Esta es la <strong>V0</strong> — un prototipo funcional que valida el
+              concepto. Las funcionalidades principales ya están operativas.
+            </p>
+          </div>
+
+          <!-- Grid 2x3 de feature cards -->
+          <div class="cards-grid cards-grid-3">
+
+            <article class="card card-feature" aria-label="Escaneo de QR integrado">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono cámara -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Escaneo de QR integrado</h3>
+              <p class="card-text">
+                Lee códigos QR directamente desde la cámara del dispositivo, sin
+                necesidad de apps adicionales.
+              </p>
+            </article>
+
+            <article class="card card-feature" aria-label="Detección de URL válida">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono lupa -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Detección de URL válida</h3>
+              <p class="card-text">
+                Verifica que el QR contenga una dirección web con formato http o https
+                antes de analizarla.
+              </p>
+            </article>
+
+            <article class="card card-feature" aria-label="Consulta a proveedores externos">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono nube / servidor -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 12 20 22 4 22 4 12"/>
+                  <rect x="2" y="7" width="20" height="5"/>
+                  <line x1="12" y1="22" x2="12" y2="7"/>
+                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Consulta a proveedores externos</h3>
+              <p class="card-text">
+                El servidor consulta servicios de reputación externos especializados
+                para evaluar el historial del enlace.
+              </p>
+            </article>
+
+            <article class="card card-feature" aria-label="Resultado tipo semáforo">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono semáforo simplificado -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="6" y="2" width="12" height="20" rx="5"/>
+                  <circle cx="12" cy="7" r="2" fill="#4CAF50" stroke="none"/>
+                  <circle cx="12" cy="13" r="2" fill="#FF8F00" stroke="none"/>
+                  <circle cx="12" cy="19" r="2" fill="#D32F2F" stroke="none"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Resultado tipo semáforo</h3>
+              <p class="card-text">
+                El nivel de riesgo se presenta en tres niveles visuales: seguro,
+                sospechoso o peligroso.
+              </p>
+            </article>
+
+            <article class="card card-feature" aria-label="Resumen en lenguaje claro">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono mensaje -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Resumen en lenguaje claro</h3>
+              <p class="card-text">
+                Junto al nivel de riesgo, recibes un breve texto explicativo sin
+                tecnicismos.
+              </p>
+            </article>
+
+            <article class="card card-feature" aria-label="Postura conservadora ante incertidumbre">
+              <div class="card-icon-wrap card-icon-brand">
+                <!-- Icono alerta -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <h3 class="card-title">Postura conservadora ante incertidumbre</h3>
+              <p class="card-text">
+                Si el análisis no puede completarse, el resultado se clasifica como
+                sospechoso por defecto. Nunca como seguro.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: NIVELES DE RIESGO — #niveles
+      ============================================================ -->
+      <section class="section section-brand-surface" id="niveles" aria-labelledby="niveles-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="niveles-title" class="section-title">Los tres niveles de resultado</h2>
+            <p class="section-subtitle">El semáforo de AnalizadorQR</p>
+          </div>
+
+          <div class="risk-cards">
+
+            <!-- SEGURO -->
+            <article class="risk-card risk-safe" aria-label="Nivel de riesgo: Seguro">
+              <div class="risk-card-header">
+                <span class="risk-icon" aria-hidden="true">✅</span>
+                <span class="risk-badge badge-safe">SEGURO</span>
+              </div>
+              <h3 class="risk-title">Sin señales de riesgo detectadas</h3>
+              <p class="risk-text">
+                Los proveedores externos no encontraron asociaciones con amenazas
+                conocidas para este enlace en el momento del análisis.
+              </p>
+            </article>
+
+            <!-- SOSPECHOSO -->
+            <article class="risk-card risk-suspicious" aria-label="Nivel de riesgo: Sospechoso">
+              <div class="risk-card-header">
+                <span class="risk-icon" aria-hidden="true">⚠️</span>
+                <span class="risk-badge badge-suspicious">SOSPECHOSO</span>
+              </div>
+              <h3 class="risk-title">Hay señales de alerta o análisis incompleto</h3>
+              <p class="risk-text">
+                Se detectaron indicios de riesgo, o no fue posible obtener una respuesta
+                completa de todos los proveedores. Se recomienda precaución.
+              </p>
+            </article>
+
+            <!-- PELIGROSO -->
+            <article class="risk-card risk-dangerous" aria-label="Nivel de riesgo: Peligroso">
+              <div class="risk-card-header">
+                <span class="risk-icon" aria-hidden="true">🚫</span>
+                <span class="risk-badge badge-dangerous">PELIGROSO</span>
+              </div>
+              <h3 class="risk-title">Amenaza grave detectada</h3>
+              <p class="risk-text">
+                Los proveedores externos han devuelto una señal fuerte asociada a
+                phishing, malware o ingeniería social. No se recomienda continuar.
+              </p>
+            </article>
+
+          </div>
+
+          <!-- Nota bajo tarjetas -->
+          <p class="note-text note-centered">
+            ℹ️ Estos niveles son orientativos. El resultado refleja la información disponible
+            en el momento del análisis y puede no estar actualizado en tiempo real.
+          </p>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: CAPTURAS — #capturas
+      ============================================================ -->
+      <section class="section section-white" id="capturas" aria-labelledby="capturas-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="capturas-title" class="section-title">La app en acción</h2>
+            <p class="section-subtitle">
+              Así se ve AnalizadorQR en un dispositivo Android. Diseñada para ser
+              clara y directa, sin configuraciones complejas ni tecnicismos visibles.
+            </p>
+          </div>
+
+          <!-- Grid de 4 mockups móviles -->
+          <div class="screenshots-grid">
+
+            <!-- Captura 1: Escaneo -->
+            <figure class="screenshot-item">
+              <div class="phone-frame">
+                <div class="phone-frame-inner">
+                  <!-- Placeholder hasta tener imágenes reales -->
+                  <!-- Cuando tengas la imagen: <img src="/images/screen-scan.webp" alt="..." /> -->
+                  <div class="screenshot-placeholder screenshot-ph-scan">
+                    <div class="ph-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                        <rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
+                        <rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none"/>
+                        <rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none"/>
+                        <line x1="14" y1="14" x2="17" y2="14"/>
+                        <line x1="14" y1="17" x2="17" y2="17"/>
+                        <line x1="17" y1="14" x2="17" y2="17"/>
+                      </svg>
+                    </div>
+                    <span class="ph-label">Escaneo de QR</span>
+                    <span class="ph-sublabel">Captura próximamente</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Escaneo de QR</figcaption>
+            </figure>
+
+            <!-- Captura 2: Resultado Seguro -->
+            <figure class="screenshot-item">
+              <div class="phone-frame phone-frame-safe">
+                <div class="phone-frame-inner">
+                  <div class="screenshot-placeholder screenshot-ph-safe">
+                    <div class="ph-icon ph-icon-safe" aria-hidden="true">✅</div>
+                    <span class="ph-label">Resultado: Seguro</span>
+                    <span class="ph-sublabel">Captura próximamente</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Resultado: Seguro</figcaption>
+            </figure>
+
+            <!-- Captura 3: Resultado Sospechoso -->
+            <figure class="screenshot-item">
+              <div class="phone-frame phone-frame-suspicious">
+                <div class="phone-frame-inner">
+                  <div class="screenshot-placeholder screenshot-ph-suspicious">
+                    <div class="ph-icon ph-icon-suspicious" aria-hidden="true">⚠️</div>
+                    <span class="ph-label">Resultado: Sospechoso</span>
+                    <span class="ph-sublabel">Captura próximamente</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Resultado: Sospechoso</figcaption>
+            </figure>
+
+            <!-- Captura 4: Resultado Peligroso -->
+            <figure class="screenshot-item">
+              <div class="phone-frame phone-frame-dangerous">
+                <div class="phone-frame-inner">
+                  <div class="screenshot-placeholder screenshot-ph-dangerous">
+                    <div class="ph-icon ph-icon-dangerous" aria-hidden="true">🚫</div>
+                    <span class="ph-label">Resultado: Peligroso</span>
+                    <span class="ph-sublabel">Captura próximamente</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="screenshot-caption">Resultado: Peligroso</figcaption>
+            </figure>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: SEGURIDAD Y PRIVACIDAD — #seguridad
+      ============================================================ -->
+      <section class="section section-brand-surface" id="seguridad" aria-labelledby="seguridad-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="seguridad-title" class="section-title">
+              Diseñado con precaución desde el principio
+            </h2>
+            <p class="section-subtitle">
+              Algunas decisiones de diseño que priorizan tu seguridad
+            </p>
+          </div>
+
+          <ul class="security-list" role="list">
+
+            <li class="security-item" role="listitem">
+              <span class="security-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </span>
+              <div class="security-content">
+                <strong>No abre enlaces automáticamente.</strong> La app nunca visita
+                el enlace por ti. Solo lo analiza. Siempre eres tú quien decide si abrir.
+              </div>
+            </li>
+
+            <li class="security-item" role="listitem">
+              <span class="security-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+              </span>
+              <div class="security-content">
+                <strong>Las claves de los proveedores externos están solo en el servidor.</strong>
+                La app Android no contiene credenciales ni claves de API.
+              </div>
+            </li>
+
+            <li class="security-item" role="listitem">
+              <span class="security-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </span>
+              <div class="security-content">
+                <strong>Validación mínima en ambos extremos.</strong> La URL se valida
+                antes de enviarla al servidor, y el servidor la valida antes de analizarla.
+              </div>
+            </li>
+
+            <li class="security-item" role="listitem">
+              <span class="security-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </span>
+              <div class="security-content">
+                <strong>Ante la duda, alerta.</strong> Si el análisis no puede completarse
+                correctamente, el sistema clasifica el resultado como sospechoso, nunca
+                como seguro.
+              </div>
+            </li>
+
+            <li class="security-item" role="listitem">
+              <span class="security-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"/>
+                  <line x1="8" y1="12" x2="21" y2="12"/>
+                  <line x1="8" y1="18" x2="21" y2="18"/>
+                  <line x1="3" y1="6" x2="3.01" y2="6"/>
+                  <line x1="3" y1="12" x2="3.01" y2="12"/>
+                  <line x1="3" y1="18" x2="3.01" y2="18"/>
+                </svg>
+              </span>
+              <div class="security-content">
+                <strong>El resultado informa el estado del análisis.</strong> Siempre
+                sabrás si el análisis fue completo, parcial o no disponible.
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: STACK TÉCNICO — #tecnologia
+      ============================================================ -->
+      <section class="section section-white" id="tecnologia" aria-labelledby="tecnologia-title">
+        <div class="container">
+
+          <div class="section-header">
+            <h2 id="tecnologia-title" class="section-title">Tecnología utilizada</h2>
+            <p class="section-subtitle">Una visión rápida del stack del proyecto</p>
+          </div>
+
+          <div class="tech-groups">
+
+            <div class="tech-group">
+              <h3 class="tech-group-title">App Android</h3>
+              <div class="tech-pills">
+                <span class="tech-pill">Android · Kotlin</span>
+                <span class="tech-pill">Jetpack Compose</span>
+                <span class="tech-pill">ZXing</span>
+                <span class="tech-pill">Retrofit</span>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3 class="tech-group-title">Backend</h3>
+              <div class="tech-pills">
+                <span class="tech-pill">Python · FastAPI</span>
+                <span class="tech-pill">httpx</span>
+                <span class="tech-pill">Pydantic</span>
+                <span class="tech-pill">Docker Compose</span>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3 class="tech-group-title">Análisis externo</h3>
+              <div class="tech-pills">
+                <span class="tech-pill tech-pill-accent">Google Web Risk</span>
+                <span class="tech-pill tech-pill-accent">IPQualityScore</span>
+              </div>
+            </div>
+
+            <div class="tech-group">
+              <h3 class="tech-group-title">Publicación</h3>
+              <div class="tech-pills">
+                <span class="tech-pill">GitHub Pages</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECCIÓN: CTA FINAL
+      ============================================================ -->
+      <section class="section cta-section" aria-labelledby="cta-title">
+        <div class="container cta-inner">
+          <h2 id="cta-title" class="cta-title">
+            Un paso sencillo que puede marcar la diferencia
+          </h2>
+          <p class="cta-subtitle">
+            Antes de seguir un QR desconocido, AnalizadorQR te da unos segundos de
+            información. No reemplaza el sentido común, pero lo complementa.
+          </p>
+
+          <div class="cta-actions">
+            <a href="#como-funciona" class="btn btn-white btn-lg" id="cta-final-primary">
+              Ver cómo funciona ↑
+            </a>
+            <a href="#capturas" class="btn btn-outline-white btn-lg" id="cta-final-secondary">
+              Ver capturas
+            </a>
+          </div>
+
+          <p class="cta-note">
+            Proyecto de Trabajo de Fin de Grado orientado a la prevención del quishing
+            mediante análisis preventivo de códigos QR.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+
+        <div class="footer-brand">
+          <span class="footer-logo">🛡️ AnalizadorQR</span>
+          <p class="footer-tagline">Analiza antes de abrir.</p>
+        </div>
+
+        <div class="footer-meta">
+          <span class="footer-tag">Proyecto académico · Trabajo de Fin de Grado</span>
+          <span class="footer-year">© 2026</span>
+        </div>
+
+        <p class="footer-legal">
+          Esta landing es parte de un proyecto académico y no incluye formularios
+          ni registro de usuarios.
+        </p>
+
+      </div>
+    </footer>
+
+
+    <!-- ============================================================
+         BOTÓN VOLVER ARRIBA
+    ============================================================ -->
+    <a href="#inicio" class="back-to-top" id="back-to-top" aria-label="Volver al inicio de la página">
+      ↑
+    </a>
+
+
+    <!-- ============================================================
+         SCRIPT MÍNIMO: Hamburger + header scroll + back-to-top
+         (Solo JS imprescindible, sin librerías)
+    ============================================================ -->
+    <script>
+      // --- Hamburger menu ---
+      const btn = document.getElementById('hamburger-btn');
+      const menu = document.getElementById('mobile-menu');
+
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          const isOpen = !menu.hidden;
+          menu.hidden = isOpen;
+          btn.setAttribute('aria-expanded', String(!isOpen));
+          btn.classList.toggle('is-open', !isOpen);
+        });
+
+        // Cerrar al hacer clic en un enlace del menú móvil
+        menu.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
+          link.addEventListener('click', () => {
+            menu.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+            btn.classList.remove('is-open');
+          });
+        });
+      }
+
+      // --- Header con sombra al hacer scroll ---
+      const header = document.getElementById('site-header');
+      if (header) {
+        const onScroll = () => {
+          header.classList.toggle('header-scrolled', window.scrollY > 20);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+
+      // --- Botón volver arriba ---
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        const toggleBtn = () => {
+          backToTop.classList.toggle('visible', window.scrollY > 400);
+        };
+        window.addEventListener('scroll', toggleBtn, { passive: true });
+      }
+    </script>
+
+
+  </body>
 </html>
+
+
+<!-- ================================================================
+     ESTILOS CSS INTERNOS
+================================================================ -->
+<style is:global>
+
+  /* ---------------------------------------------------------------
+     DESIGN TOKENS
+  --------------------------------------------------------------- */
+  :root {
+    /* Colores de marca */
+    --color-brand:         #2E7D32;
+    --color-brand-mid:     #388E3C;
+    --color-brand-light:   #A5D6A7;
+    --color-brand-surface: #F1F8E9;
+
+    /* Semáforo */
+    --color-safe:          #4CAF50;
+    --color-safe-bg:       #E8F5E9;
+    --color-suspicious:    #FF8F00;
+    --color-suspicious-bg: #FFF8E1;
+    --color-dangerous:     #D32F2F;
+    --color-dangerous-bg:  #FFEBEE;
+
+    /* Fondos */
+    --color-bg:            #FAFAFA;
+    --color-surface:       #FFFFFF;
+    --color-light:         #F5F7F5;
+
+    /* Textos */
+    --color-text-primary:   #1C2B1E;
+    --color-text-secondary: #4A5E4C;
+    --color-text-muted:     #78909C;
+
+    /* Bordes */
+    --color-border:        #E8F5E9;
+
+    /* Tipografía */
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* Espaciado */
+    --space-xs:  8px;
+    --space-sm:  16px;
+    --space-md:  24px;
+    --space-lg:  40px;
+    --space-xl:  64px;
+    --space-2xl: 96px;
+
+    /* Border radius */
+    --radius-sm:   8px;
+    --radius-md:   16px;
+    --radius-lg:   24px;
+    --radius-xl:   32px;
+    --radius-pill: 9999px;
+
+    /* Sombras */
+    --shadow-card: 0 4px 24px rgba(46, 125, 50, 0.08);
+    --shadow-card-hover: 0 8px 32px rgba(46, 125, 50, 0.16);
+    --shadow-header: 0 2px 16px rgba(0, 0, 0, 0.08);
+
+    /* Transiciones */
+    --transition-fast:   150ms ease;
+    --transition-normal: 250ms ease;
+  }
+
+  /* ---------------------------------------------------------------
+     RESET Y BASE
+  --------------------------------------------------------------- */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  /* ---------------------------------------------------------------
+     LAYOUT: CONTAINER
+  --------------------------------------------------------------- */
+  .container {
+    max-width: 1140px;
+    margin-inline: auto;
+    padding-inline: var(--space-sm);
+  }
+
+  /* ---------------------------------------------------------------
+     TIPOGRAFÍA
+  --------------------------------------------------------------- */
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 60ch;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  /* ---------------------------------------------------------------
+     BOTONES
+  --------------------------------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color var(--transition-normal),
+                transform var(--transition-fast),
+                box-shadow var(--transition-normal);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand);
+    color: #fff;
+    border-color: var(--color-brand);
+    padding: 10px 24px;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-mid);
+    border-color: var(--color-brand-mid);
+    box-shadow: 0 4px 16px rgba(46, 125, 50, 0.3);
+  }
+
+  .btn-sm {
+    font-size: 0.875rem;
+    padding: 8px 18px;
+  }
+
+  .btn-lg {
+    font-size: 1.0625rem;
+    padding: 14px 32px;
+  }
+
+  .btn-white {
+    background-color: #fff;
+    color: var(--color-brand);
+    border-color: #fff;
+    padding: 14px 32px;
+  }
+
+  .btn-white:hover {
+    background-color: var(--color-brand-surface);
+    border-color: var(--color-brand-surface);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-outline-white {
+    background-color: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+    padding: 14px 32px;
+  }
+
+  .btn-outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+  }
+
+  .btn-link {
+    color: var(--color-brand);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: opacity var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .btn-link:hover {
+    opacity: 0.7;
+  }
+
+  /* ---------------------------------------------------------------
+     BADGES
+  --------------------------------------------------------------- */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .badge-brand {
+    background-color: var(--color-brand-surface);
+    color: var(--color-brand);
+    border: 1px solid var(--color-brand-light);
+  }
+
+  /* ---------------------------------------------------------------
+     HEADER
+  --------------------------------------------------------------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(250, 250, 250, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-normal),
+                box-shadow var(--transition-normal);
+  }
+
+  .site-header.header-scrolled {
+    border-bottom-color: var(--color-border);
+    box-shadow: var(--shadow-header);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    height: 68px;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    flex-shrink: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    color: var(--color-brand);
+  }
+
+  /* Nav links desktop */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-brand);
+    border-radius: 2px;
+    transition: width var(--transition-normal);
+  }
+
+  .nav-link:hover {
+    color: var(--color-brand);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast);
+  }
+
+  .hamburger:hover {
+    background-color: var(--color-brand-surface);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform var(--transition-normal), opacity var(--transition-fast);
+  }
+
+  .hamburger.is-open .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.is-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-open .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Menú móvil */
+  /* hidden attribute oculta el elemento; cuando JS lo abre, quita hidden y
+     el CSS flex solo aplica en móvil */
+  .mobile-menu[hidden] {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+  }
+
+  /* En desktop siempre oculto, independientemente del estado JS */
+  @media (min-width: 901px) {
+    .mobile-menu {
+      display: none !important;
+    }
+  }
+
+  .mobile-link {
+    padding: 12px var(--space-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .mobile-link:hover {
+    background-color: var(--color-brand-surface);
+    color: var(--color-brand);
+  }
+
+  .mobile-cta {
+    margin-top: var(--space-xs);
+    text-align: center;
+  }
+
+  /* ---------------------------------------------------------------
+     SECCIONES — LAYOUT BASE
+  --------------------------------------------------------------- */
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section-white {
+    background-color: var(--color-surface);
+  }
+
+  .section-light {
+    background-color: var(--color-light);
+  }
+
+  .section-brand-surface {
+    background-color: var(--color-brand-surface);
+  }
+
+  /* ---------------------------------------------------------------
+     HERO
+  --------------------------------------------------------------- */
+  .hero {
+    background-color: var(--color-surface);
+    padding-block: var(--space-xl) var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+  }
+
+  .text-brand {
+    color: var(--color-brand);
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 48ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-top: var(--space-xs);
+  }
+
+  /* Hero visual (columna derecha) */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Mockup de teléfono */
+  .phone-mockup {
+    width: 260px;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow:
+      0 0 0 10px #1c2b1e,
+      0 24px 64px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+
+  .phone-screen {
+    background: #f0f4f0;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .phone-statusbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px 4px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: #fff;
+  }
+
+  .phone-appbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .phone-appbar-icon {
+    font-size: 1rem;
+  }
+
+  .phone-appbar-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+
+  /* Tarjeta resultado dentro del mockup */
+  .result-card {
+    margin: 16px 12px;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .result-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+  }
+
+  .result-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .result-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .result-status.safe {
+    background-color: var(--color-safe-bg);
+  }
+
+  .result-icon {
+    font-size: 1.25rem;
+  }
+
+  .result-level {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: var(--color-brand);
+    letter-spacing: 0.04em;
+  }
+
+  .result-summary {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .result-url {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    background: var(--color-light);
+    border-radius: var(--radius-sm);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .result-url-icon {
+    font-size: 0.875rem;
+  }
+
+  .result-url-text {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .result-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .result-analysis-status {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-safe);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .result-time {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Glow de fondo hero */
+  .hero-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Patrón QR de fondo */
+  .hero-bg-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-bg-pattern svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ---------------------------------------------------------------
+     CARDS GRID
+  --------------------------------------------------------------- */
+  .cards-grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .cards-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Card base */
+  .card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-normal),
+                box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Icono en cards */
+  .card-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .card-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-secondary);
+  }
+
+  .card-icon-brand {
+    background-color: var(--color-brand-surface);
+  }
+
+  .card-icon-brand svg {
+    color: var(--color-brand);
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+  }
+
+  .card-text {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Card problem: icono gris */
+  .card-problem .card-icon-wrap svg {
+    color: var(--color-text-muted);
+  }
+
+  /* ---------------------------------------------------------------
+     SECCIÓN QUISHING
+  --------------------------------------------------------------- */
+  .quishing-block {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-left: 4px solid var(--color-suspicious);
+    box-shadow: var(--shadow-card);
+  }
+
+  .quishing-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .quishing-text {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ---------------------------------------------------------------
+     DISCLAIMER / NOTAS
+  --------------------------------------------------------------- */
+  .disclaimer-text {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin-inline: auto;
+    margin-top: var(--space-lg);
+    line-height: 1.6;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--color-border);
+  }
+
+  .note-text {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    line-height: 1.6;
+  }
+
+  .note-centered {
+    text-align: center;
+    max-width: 60ch;
+    margin-inline: auto;
+  }
+
+  /* ---------------------------------------------------------------
+     FLUJO "CÓMO FUNCIONA"
+  --------------------------------------------------------------- */
+  .steps-flow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  .step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-brand-light);
+    line-height: 1;
+    font-family: var(--font-mono);
+    margin-bottom: 4px;
+  }
+
+  .step-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--color-brand-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xs);
+    border: 2px solid var(--color-brand-light);
+  }
+
+  .step-icon-wrap svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-brand);
+  }
+
+  .step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .step-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 20ch;
+    margin-inline: auto;
+  }
+
+  /* Conector entre pasos */
+  .step-connector {
+    flex-shrink: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-brand-light), var(--color-brand-light));
+    margin-top: 80px; /* alinear con el icono */
+    position: relative;
+  }
+
+  .step-connector::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    border-left: 7px solid var(--color-brand-light);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+
+  /* ---------------------------------------------------------------
+     RISK CARDS (Niveles de riesgo)
+  --------------------------------------------------------------- */
+  .risk-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .risk-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    border-top: 4px solid transparent;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .risk-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .risk-safe    { border-top-color: var(--color-safe); }
+  .risk-suspicious { border-top-color: var(--color-suspicious); }
+  .risk-dangerous  { border-top-color: var(--color-dangerous); }
+
+  .risk-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-xs);
+  }
+
+  .risk-icon {
+    font-size: 2rem;
+  }
+
+  .risk-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+  }
+
+  .badge-safe       { background: var(--color-safe-bg);       color: #2e7d32; }
+  .badge-suspicious { background: var(--color-suspicious-bg); color: #e65100; }
+  .badge-dangerous  { background: var(--color-dangerous-bg);  color: #b71c1c; }
+
+  .risk-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+  }
+
+  .risk-text {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ---------------------------------------------------------------
+     CAPTURAS (Screenshots)
+  --------------------------------------------------------------- */
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    align-items: start;
+  }
+
+  .screenshot-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  /* Marco de teléfono (para imágenes reales) */
+  .phone-frame {
+    width: 100%;
+    max-width: 180px;
+    aspect-ratio: 9 / 19;
+    background-color: #1c2b1e;
+    border-radius: 28px;
+    padding: 6px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: transform var(--transition-normal);
+  }
+
+  .phone-frame:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Acento de color superior según resultado */
+  .phone-frame-safe       { box-shadow: 0 8px 32px rgba(76, 175, 80, 0.25), inset 0 0 0 1px rgba(76,175,80,0.2); }
+  .phone-frame-suspicious { box-shadow: 0 8px 32px rgba(255, 143, 0, 0.25), inset 0 0 0 1px rgba(255,143,0,0.2); }
+  .phone-frame-dangerous  { box-shadow: 0 8px 32px rgba(211, 47, 47, 0.25), inset 0 0 0 1px rgba(211,47,47,0.2); }
+
+  .phone-frame-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--color-light);
+  }
+
+  /* Placeholder para cuando no hay imagen */
+  .screenshot-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: var(--space-sm);
+    text-align: center;
+    background: linear-gradient(160deg, #f5f7f5 0%, #e8f5e9 100%);
+  }
+
+  .ph-icon {
+    font-size: 2rem;
+    color: var(--color-text-muted);
+  }
+
+  .ph-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ph-icon-safe       { color: var(--color-safe);       font-size: 2.5rem; }
+  .ph-icon-suspicious { color: var(--color-suspicious); font-size: 2.5rem; }
+  .ph-icon-dangerous  { color: var(--color-dangerous);  font-size: 2.5rem; }
+
+  .ph-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    line-height: 1.3;
+  }
+
+  .ph-sublabel {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  .screenshot-caption {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-align: center;
+  }
+
+  /* ---------------------------------------------------------------
+     LISTA DE SEGURIDAD
+  --------------------------------------------------------------- */
+  .security-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .security-item {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-normal);
+  }
+
+  .security-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .security-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-brand-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .security-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-brand);
+  }
+
+  .security-content {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .security-content strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  /* ---------------------------------------------------------------
+     STACK TÉCNICO
+  --------------------------------------------------------------- */
+  .tech-groups {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .tech-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .tech-group-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    color: var(--color-text-secondary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .tech-pill:hover {
+    background-color: var(--color-brand-surface);
+    color: var(--color-brand);
+  }
+
+  .tech-pill-accent {
+    background: var(--color-brand-surface);
+    border-color: var(--color-brand-light);
+    color: var(--color-brand);
+  }
+
+  /* ---------------------------------------------------------------
+     CTA FINAL
+  --------------------------------------------------------------- */
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-mid) 100%);
+    padding-block: var(--space-xl);
+  }
+
+  .cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #fff;
+    max-width: 20ch;
+    line-height: 1.2;
+  }
+
+  .cta-subtitle {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 50ch;
+    line-height: 1.7;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-xs);
+  }
+
+  .cta-note {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 50ch;
+    line-height: 1.6;
+  }
+
+  /* ---------------------------------------------------------------
+     FOOTER
+  --------------------------------------------------------------- */
+  .site-footer {
+    background-color: var(--color-text-primary);
+    padding-block: var(--space-lg);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .footer-logo {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-brand-light);
+  }
+
+  .footer-tagline {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+  }
+
+  .footer-tag {
+    font-weight: 500;
+  }
+
+  .footer-legal {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    max-width: 50ch;
+    line-height: 1.6;
+  }
+
+  /* ---------------------------------------------------------------
+     BOTÓN VOLVER ARRIBA
+  --------------------------------------------------------------- */
+  .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-brand);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    box-shadow: 0 4px 16px rgba(46, 125, 50, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity var(--transition-normal),
+                transform var(--transition-normal),
+                background-color var(--transition-fast);
+    z-index: 200;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background-color: var(--color-brand-mid);
+  }
+
+  /* ---------------------------------------------------------------
+     RESPONSIVE — TABLET (≤ 900px)
+  --------------------------------------------------------------- */
+  @media (max-width: 900px) {
+    .nav-links,
+    #header-cta {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-text {
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      margin-inline: auto;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .phone-mockup {
+      width: 200px;
+    }
+
+    .hero-bg-pattern {
+      display: none;
+    }
+
+    .cards-grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .risk-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .risk-cards > *:last-child {
+      grid-column: 1 / -1;
+      max-width: 380px;
+      margin-inline: auto;
+      width: 100%;
+    }
+
+    .screenshots-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .security-list {
+      grid-template-columns: 1fr;
+    }
+
+    .tech-groups {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-flow {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    .step {
+      flex: 0 0 calc(50% - var(--space-sm));
+    }
+  }
+
+  /* ---------------------------------------------------------------
+     RESPONSIVE — MÓVIL (≤ 600px)
+  --------------------------------------------------------------- */
+  @media (max-width: 600px) {
+    .section {
+      padding-block: var(--space-lg);
+    }
+
+    .cards-grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .risk-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .risk-cards > *:last-child {
+      max-width: 100%;
+      grid-column: auto;
+    }
+
+    .screenshots-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .tech-groups {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .step {
+      flex: 0 0 100%;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .footer-meta {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .quishing-block {
+      padding: var(--space-sm);
+    }
+
+    .security-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+</style>
