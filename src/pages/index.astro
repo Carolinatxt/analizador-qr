@@ -2,6 +2,7 @@
 // AnalizadorQR — Landing Page
 // Proyecto de Trabajo de Fin de Grado
 // Fase 4: Refinamiento visual y accesibilidad
+const base = import.meta.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
@@ -20,8 +21,8 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
 
     <!-- Open Graph básico -->
     <meta property="og:title" content="AnalizadorQR — Comprueba un código QR antes de abrirlo" />
@@ -31,7 +32,7 @@
     />
     <meta property="og:type" content="website" />
     <!-- og:image: sustituir por una captura real de la landing cuando esté publicada -->
-    <meta property="og:image" content="/favicon.svg" />
+    <meta property="og:image" content={`${base}favicon.svg`} />
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +58,7 @@
         <a href="#inicio" class="logo" aria-label="AnalizadorQR - Ir al inicio">
           <img
             class="logo-icon"
-            src="/images/logo-analizador-qr.png"
+            src={`${base}images/logo-analizador-qr.png`}
             alt="Logo de AnalizadorQR"
             loading="eager"
             decoding="async"
@@ -760,7 +761,7 @@
                 <div class="phone-frame-inner">
                   <img
                     class="screenshot-image"
-                    src="/images/screens/screen-scan.jpg"
+                    src={`${base}images/screens/screen-scan.jpg`}
                     alt="Pantalla principal de escaneo de QR en la app AnalizadorQR"
                     loading="lazy"
                     decoding="async"
@@ -776,7 +777,7 @@
                 <div class="phone-frame-inner">
                   <img
                     class="screenshot-image"
-                    src="/images/screens/screen-result-safe.jpg"
+                    src={`${base}images/screens/screen-result-safe.jpg`}
                     alt="Pantalla de resultado seguro en AnalizadorQR"
                     loading="lazy"
                     decoding="async"
@@ -792,7 +793,7 @@
                 <div class="phone-frame-inner">
                   <img
                     class="screenshot-image"
-                    src="/images/screens/screen-result-suspicious.jpg"
+                    src={`${base}images/screens/screen-result-suspicious.jpg`}
                     alt="Pantalla de resultado sospechoso en AnalizadorQR"
                     loading="lazy"
                     decoding="async"
@@ -808,7 +809,7 @@
                 <div class="phone-frame-inner">
                   <img
                     class="screenshot-image"
-                    src="/images/screens/screen-result-dangerous.jpg"
+                    src={`${base}images/screens/screen-result-dangerous.jpg`}
                     alt="Pantalla de resultado peligroso en AnalizadorQR"
                     loading="lazy"
                     decoding="async"
