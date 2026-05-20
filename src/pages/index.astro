@@ -1,5 +1,5 @@
 ---
-// AnalizadorQR — Landing Page
+// QR Scanner Security — Landing Page
 // Proyecto de Trabajo de Fin de Grado
 // Fase 4: Refinamiento visual y accesibilidad
 const base = import.meta.env.BASE_URL;
@@ -14,10 +14,10 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-    <title>AnalizadorQR — Comprueba un código QR antes de abrirlo</title>
+    <title>QR Scanner Security — Comprueba un código QR antes de abrirlo</title>
     <meta
       name="description"
-      content="AnalizadorQR analiza el enlace de un código QR con fuentes externas de reputación y te muestra si parece seguro, sospechoso o peligroso, para que puedas decidir con más información."
+      content="QR Scanner Security analiza el enlace de un código QR con fuentes externas de reputación y te muestra si parece seguro, sospechoso o peligroso, para que puedas decidir con más información."
     />
     <meta name="robots" content="index, follow" />
 
@@ -26,7 +26,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
     <link rel="icon" href={withBase('/favicon.ico')} />
 
     <!-- Open Graph básico -->
-    <meta property="og:title" content="AnalizadorQR — Comprueba un código QR antes de abrirlo" />
+    <meta property="og:title" content="QR Scanner Security — Comprueba un código QR antes de abrirlo" />
     <meta
       property="og:description"
       content="Analiza el enlace de un QR con fuentes externas de reputación antes de decidir si abrirlo."
@@ -56,15 +56,15 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
       <div class="container header-inner">
 
         <!-- Logo -->
-        <a href="#inicio" class="logo" aria-label="AnalizadorQR - Ir al inicio">
+        <a href="#inicio" class="logo" aria-label="QR Scanner Security - Ir al inicio">
           <img
             class="logo-icon"
             src={withBase('/images/logo-analizador-qr.png')}
-            alt="Logo de AnalizadorQR"
+            alt="Logo de QR Scanner Security"
             loading="eager"
             decoding="async"
           />
-          <span class="logo-text">AnalizadorQR</span>
+          <span class="logo-text">QR Scanner Security</span>
         </a>
 
         <!-- Navegación desktop -->
@@ -124,7 +124,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
             </h1>
 
             <p class="hero-subtitle">
-              AnalizadorQR analiza el enlace que contiene un código QR y te muestra
+              QR Scanner Security analiza el enlace que contiene un código QR y te muestra
               si parece seguro, sospechoso o peligroso, para que puedas decidir
               con más información.
             </p>
@@ -362,7 +362,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
               Una capa de análisis antes de decidir
             </h2>
             <p class="section-subtitle">
-              AnalizadorQR no sustituye tu criterio ni garantiza seguridad absoluta.
+              QR Scanner Security no sustituye tu criterio ni garantiza seguridad absoluta.
               Pero te da información antes de abrir un enlace desconocido: señales de
               riesgo detectadas por fuentes externas especializadas, presentadas de
               forma clara y comprensible.
@@ -423,7 +423,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
 
           <!-- Nota disclaimer -->
           <p class="disclaimer-text">
-            AnalizadorQR es un prototipo de validación técnica desarrollado como
+            QR Scanner Security es un prototipo de validación técnica desarrollado como
             Trabajo de Fin de Grado. Su objetivo es demostrar la viabilidad del
             concepto, no ofrecer una solución de seguridad definitiva.
           </p>
@@ -440,7 +440,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
 
           <div class="section-header">
             <h2 id="como-funciona-title" class="section-title">
-              Cómo funciona AnalizadorQR
+              Cómo funciona QR Scanner Security
             </h2>
             <p class="section-subtitle">Un proceso simple en cuatro pasos</p>
           </div>
@@ -667,7 +667,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
 
           <div class="section-header">
             <h2 id="niveles-title" class="section-title">Los tres niveles de resultado</h2>
-            <p class="section-subtitle">El semáforo de AnalizadorQR</p>
+            <p class="section-subtitle">El semáforo de QR Scanner Security</p>
           </div>
 
           <div class="risk-cards">
@@ -748,7 +748,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
           <div class="section-header">
             <h2 id="capturas-title" class="section-title">La app en acción</h2>
             <p class="section-subtitle">
-              Así se ve AnalizadorQR en un dispositivo Android. Diseñada para ser
+              Así se ve QR Scanner Security en un dispositivo Android. Diseñada para ser
               clara y directa, sin configuraciones complejas ni tecnicismos visibles.
             </p>
           </div>
@@ -763,7 +763,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
                   <img
                     class="screenshot-image"
                     src={withBase('/images/screens/screen-scan.jpg')}
-                    alt="Pantalla principal de escaneo de QR en la app AnalizadorQR"
+                    alt="Pantalla principal de escaneo de QR en la app QR Scanner Security"
                     loading="lazy"
                     decoding="async"
                   />
@@ -779,7 +779,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
                   <img
                     class="screenshot-image"
                     src={withBase('/images/screens/screen-result-safe.jpg')}
-                    alt="Pantalla de resultado seguro en AnalizadorQR"
+                    alt="Pantalla de resultado seguro en QR Scanner Security"
                     loading="lazy"
                     decoding="async"
                   />
@@ -795,7 +795,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
                   <img
                     class="screenshot-image"
                     src={withBase('/images/screens/screen-result-suspicious.jpg')}
-                    alt="Pantalla de resultado sospechoso en AnalizadorQR"
+                    alt="Pantalla de resultado sospechoso en QR Scanner Security"
                     loading="lazy"
                     decoding="async"
                   />
@@ -811,7 +811,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
                   <img
                     class="screenshot-image"
                     src={withBase('/images/screens/screen-result-dangerous.jpg')}
-                    alt="Pantalla de resultado peligroso en AnalizadorQR"
+                    alt="Pantalla de resultado peligroso en QR Scanner Security"
                     loading="lazy"
                     decoding="async"
                   />
@@ -979,7 +979,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
             Un paso sencillo que puede marcar la diferencia
           </h2>
           <p class="cta-subtitle">
-            Antes de seguir un QR desconocido, AnalizadorQR te da unos segundos de
+            Antes de seguir un QR desconocido, QR Scanner Security te da unos segundos de
             información. No reemplaza el sentido común, pero lo complementa.
           </p>
 
@@ -1009,7 +1009,7 @@ const withBase = (path) => `${base.replace(/\/?$/, '/')}${path.replace(/^\//, ''
       <div class="container footer-inner">
 
         <div class="footer-brand">
-          <span class="footer-logo">AnalizadorQR</span>
+          <span class="footer-logo">QR Scanner Security</span>
           <p class="footer-tagline">Analiza antes de abrir.</p>
         </div>
 
